@@ -1,0 +1,52 @@
+.header {
+    height: 95vh;
+    /*the gradient is changing the color. Saying (to right bottom) means that start from the top left side to the bottom right*/
+    background-image: linear-gradient(  
+        to right bottom,
+        rgba($color-primary-light, 0.8), 
+        rgba($color-primary-dark, 0.8)),
+        url(../img/hero-small.jpg); /*small resolution screen*/
+
+    background-size: cover; /*cover always try to fit the element inside of the box*/
+    background-position: top;
+    position: relative; /*relative position in order to position the logo-box*/
+
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+        height: 95vh;
+    }
+
+    @media (min-resolution: 192dpi) and (min-width: 37.5em), /*high resolution don't make sense on small device*/ 
+           (-webkit-min-device-pixel-ratio:2) and (min-width: 37.5em),
+           (min-width: 125em) {
+        background-image: linear-gradient(  
+        to right bottom,
+        rgba($color-primary-light, 0.8), 
+        rgba($color-primary-dark, 0.8)),
+        url(../img/hero.jpg); /*high resolution screen*/
+    }
+
+    @include respond (phone) {
+        clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+            }
+
+    &__logo-box {
+        position: absolute;/*with & I am referring to header and then I am callig the logo-box*/
+        top: 4rem;
+        left: 4rem;
+    }
+
+    &__logo {
+        height: 3.5rem;
+    }
+
+    &__text-box {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%); /*with this "formula the element is gouing to be shifted exactly in the middle of the parent box"*/
+        text-align: center;
+    }
+}

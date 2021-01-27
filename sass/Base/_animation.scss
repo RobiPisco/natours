@@ -1,0 +1,48 @@
+/*----HERE IS THE ANIMATION FOR h1----*/
+@keyframes moveInLeft {
+    0% { /*the persentage in the moment of the animation HERE START*/
+        opacity: 0; /*opacityt 0 is invisible*/
+        transform: translateX(-10rem);
+    }
+
+    80% { /*HERE IS 80% TOWARDS THE END*/
+        transform: translateX(1rem);
+    }
+
+    100% { /*HERE IS THE FINALE STATE*/
+        opacity: 1;
+        transform: translate(0);
+    }
+
+}
+
+@keyframes moveInRight {
+    0% { /*the persentage in the moment of the animation HERE START*/
+        opacity: 0; /*opacityt 0 is invisible*/
+        transform: translateX(10rem);
+    }
+
+    80% { /*HERE IS 80% TOWARDS THE END*/
+        transform: translateX(-1rem);
+    }
+
+    100% { /*HERE IS THE FINALE STATE*/
+        opacity: 1;
+        transform: translate(0);
+    }
+
+}
+
+/*this is the animation for the botton*/
+@keyframes moveInBottom {
+    0% { /*the persentage in the moment of the animation HERE START*/
+        opacity: 0; /*opacityt 0 is invisible*/
+        transform: translateY(3rem);
+    }
+
+    100% { /*HERE IS THE FINALE STATE*/
+        opacity: 1;
+        transform: translate(0);
+    }
+
+}

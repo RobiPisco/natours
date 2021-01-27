@@ -1,0 +1,41 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit; /*here we are saying to inherit the box sizing situated in the body*/
+}
+
+html { /*because rem is related to the parent px, if I set the font size to 10px then 1 rem is equal to 10px*//* 10px / 16px */
+    font-size: 62.5%; 
+
+    /*@include respond (phone) {
+        font-size: 35%; //I'm deleting this one cos 600 and 900 are both set to 50% (check mixin folder to see)
+    }*/
+
+    @include respond (tab-land) {  // width < 1200px ?
+        font-size: 56.25%; //if I want here 1rem = 9px, 9/16 = 56.25% 
+    }
+
+    @include respond (tab-port) {  //width < 900px ?
+        font-size: 50%; //if I want here 1rem = 8px, 8/16 = 50%
+        
+    }
+
+    /*@include respond (phone) {  //width < 600px ?
+        font-size: 30%; //if I want here 1rem = 4.8px, 4/16 = 30%
+    }*/
+
+    @include respond (big-desktop) {
+        font-size: 75%;  //if I want here 1rem = 12px, 12/16 = 75%
+    }
+}
+
+body {
+    box-sizing: border-box;
+    padding: 3rem;
+
+    @include respond (tab-port) { //here in the tablet viewpoert we are getting rid of the padding around the page
+        padding: 0;
+    }
+}
